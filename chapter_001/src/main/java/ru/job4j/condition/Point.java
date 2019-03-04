@@ -26,8 +26,8 @@ public class Point {
     }
 
     public static void main(String[] args) {
-        Point a = new Point(1,1);
-        Point b = new Point(2,2);
+        Point a = new Point(2,2);
+        Point b = new Point(1,1);
         double res= a.distanceTo(b);
         System.out.println(res);
     }
