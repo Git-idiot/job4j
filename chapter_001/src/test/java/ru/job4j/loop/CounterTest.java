@@ -5,7 +5,7 @@ import static org.junit.Assert.assertThat;
 
 public class CounterTest {
     @Test
-    public void SumFromOneToTenIs30(){
+    public void sumFromOneToTenIs30() {
         Counter sum = new Counter();
         int evenSum = sum.add(0,10);
         assertThat(evenSum, is(30));

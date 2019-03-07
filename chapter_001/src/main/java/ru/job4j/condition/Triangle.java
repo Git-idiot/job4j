@@ -25,7 +25,7 @@ public class Triangle {
         return result;
 
     }
-    public double area (){
+    public double area () {
         double area=-1;
         double ab=a.distanceTo(b);
         double bc=b.distanceTo(c);

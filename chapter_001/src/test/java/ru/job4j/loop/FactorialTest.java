@@ -5,15 +5,15 @@ import static org.junit.Assert.assertThat;
 
 public class FactorialTest {
     @Test
-    public void factorial3Is6 (){
+    public void factorial3Is6 () {
         Factorial factorial = new Factorial();
         int f= factorial.calc(3);
         assertThat(f, is(6));
     }
     @Test
-    public void factorialZeroIs1 (){
+    public void factorialZeroIs1 () {
         Factorial factorial = new Factorial();
-        int f= factorial.calc(0);
+        int f = factorial.calc(0);
         assertThat(f, is(1));
     }
 }
