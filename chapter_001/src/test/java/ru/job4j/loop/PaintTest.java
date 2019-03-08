@@ -9,6 +9,6 @@ public class PaintTest {
         Paint pyramid = new Paint();
         String p = pyramid.piramid(2);
         String ln = System.lineSeparator();
-        assertThat(p,is(String.format(" ^ %s^^^%s", ln, ln)));
+        assertThat(p, is(String.format(" ^ %s^^^%s", ln, ln)));
     }
 }

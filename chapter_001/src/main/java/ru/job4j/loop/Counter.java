@@ -18,15 +18,16 @@ public class Counter {
      */
     public int add(int start, int finish) {
         int sum = 0;
-        for (int i=start; i<=finish; i++ ) {
-            if (i%2==0){sum=sum+i;}
+        for(int i = start; i <=finish; i++ ) {
+            if(i % 2 == 0){sum = sum + i;}
         }
         return sum;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Counter sum = new Counter();
-        int evenSum = sum.add(0,4);
+        int evenSum = sum.add(0, 4);
         System.out.println(evenSum);
     }
 }

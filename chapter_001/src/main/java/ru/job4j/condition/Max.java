@@ -13,13 +13,13 @@ public class Max {
      * @return Максимум.
      */
     public int max(int left, int right) {
-        return left-right>0 ? left : right;
+        return left - right > 0 ? left : right;
 
     }
 
     public static void main(String[] args) {
         Max max = new Max ();
-        int res=max.max(0,0);
+        int res = max.max(0, 0);
         System.out.println(res);
 
     }

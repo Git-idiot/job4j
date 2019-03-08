@@ -25,7 +25,7 @@ public class Calculator {
      * @param second - second number.
      */
     public void subtract(double first, double second) {
-        this.result = first-second;
+        this.result = first - second;
     }
     /**
      * Method div - division.
@@ -33,7 +33,7 @@ public class Calculator {
      * @param second - second number.
      */
     public void div(double first, double second) {
-        this.result = first/second;
+        this.result = first / second;
     }
     /**
      * Method multiple - multiplication.
@@ -41,7 +41,7 @@ public class Calculator {
      * @param second - second number.
      */
     public void multiple(double first, double second) {
-        this.result = first*second;
+        this.result = first * second;
     }
 
     /**
