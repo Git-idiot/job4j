@@ -2,14 +2,14 @@ package ru.job4j.array;
 import java.util.Arrays;
 
 public class ArrayDuplicate {
-    public String[] remove(String[] array){
+    public String[] remove(String[] array) {
         int n = 1;
-        for(int i = 0; i < array.length-n; i++){
+        for (int i = 0; i < array.length - n; i++) {
             //int n = 0;
-            for(int j = 1; j < array.length-n; j++){
-                if(array[i].equals(array[j])){
-                String tmp = array[array.length-i-1];
-                array[array.length-i-1] = array[j];
+            for (int j = 1; j < array.length - n; j++) {
+                if (array[i].equals(array[j])) {
+                String tmp = array[array.length - i - 1];
+                array[array.length - i - 1] = array[j];
                 array[j] = tmp;
                 n++;
                 }
@@ -18,7 +18,7 @@ public class ArrayDuplicate {
             //System.out.println(n);
          }
        System.out.println(n);
-        String[] removedCopy = Arrays.copyOf(array, array.length-(n-1));
+        String[] removedCopy = Arrays.copyOf(array, array.length - (n - 1));
         return removedCopy; //array;
 
     }
