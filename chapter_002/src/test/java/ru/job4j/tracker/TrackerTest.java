@@ -13,7 +13,7 @@ public class TrackerTest {
     Item newItem;
     Item newItem2;
     Item replacedItem;
-    Item [] allItemsAdd;
+    Item[] allItemsAdd;
 
 
     @Before
@@ -35,7 +35,7 @@ public class TrackerTest {
      */
 
     @Test
-    public void checkAdd(){
+    public void checkAdd() {
         Item[] byName = tracker.findByName("Name1");
         assertThat(byName[0], is(item));
 
@@ -46,7 +46,7 @@ public class TrackerTest {
      */
 
     @Test
-    public void checkReplace(){
+    public void checkReplace() {
         Boolean replaced = tracker.replace(newItem.getId(), replacedItem);
         Item findItem = tracker.findById(newItem.getId());
         assertThat(replaced, is(true));
@@ -61,7 +61,7 @@ public class TrackerTest {
      */
 
     @Test
-    public void checkFindByName(){
+    public void checkFindByName() {
         Item[] byName = tracker.findByName("Name1");
         assertThat(byName[0], is(item));
         assertThat(byName[1], is(item2));
@@ -72,7 +72,7 @@ public class TrackerTest {
      */
 
     @Test
-    public void checkFindAll(){
+    public void checkFindAll() {
         Item[] findAll = tracker.findAll();
         assertThat(findAll, is(allItemsAdd));
     }
@@ -82,7 +82,7 @@ public class TrackerTest {
      */
 
     @Test
-    public void checkDelete(){
+    public void checkDelete() {
         boolean deleted = tracker.delete(newItem.getId());
         assertThat(deleted, is(true));
     }
