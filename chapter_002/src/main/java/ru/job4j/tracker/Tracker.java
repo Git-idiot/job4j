@@ -76,7 +76,7 @@ public class Tracker {
     public boolean delete(String id) {
         //System.out.println("Position before deleting - " + this.position);
         boolean isDeleted = false;
-        if (this.position > 0){
+        if (this.position > 0) {
             int pos = this.getPositionById(id);
             System.arraycopy(items, pos + 1, items, pos, this.position - pos);
             this.position--;

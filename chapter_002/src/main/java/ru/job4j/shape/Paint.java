@@ -4,7 +4,7 @@ public class Paint {
     private  ShapeStrategy shapeStrategy;
 
 
-    public String drawShape(ShapeStrategy shapeStrategy){
+    public String drawShape(ShapeStrategy shapeStrategy) {
         shapeStrategy.draw();
         return shapeStrategy.draw();
     }

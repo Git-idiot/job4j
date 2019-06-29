@@ -24,15 +24,13 @@ public class StartUI {
 
     long created = System.currentTimeMillis();
     Input input;
-
-    //Input c = new Input();
     Tracker tracker = new Tracker();
 
     /**
      * Method showMenu. Меню.
      */
 
-    public void showMenu() {
+    /*public void showMenu() {
         System.out.println("Меню");
         System.out.println(ADD + " Add new item");
         System.out.println(SHOWALL + " Show all items");
@@ -42,21 +40,21 @@ public class StartUI {
         System.out.println(FINDBYNAME + " Find item by name");
         System.out.println(EXIT + " Exit program");
 
-    }
+    }*/
     /**
      * Method createItem. Добавление заявки в трекер.
      */
-    public void createItem() {
+ /*   public void createItem() {
         String askName = input.ask("Введите имя заявки");
         String askDesc = input.ask("Введите описание заявки");
         Item createdItem = tracker.add(new Item(askName, askDesc, created));
         System.out.println("Новая заявка: ID " + createdItem.getId() + " имя " + createdItem.getName());
 
-    }
+    }*/
     /**
      * Method showAllItems. Вывод всех заявок в трекере.
      */
-    public void showAllItems() {
+    /*public void showAllItems() {
         Item[] showAll = tracker.findAll();
         if (showAll.length == 0) {
             System.out.println("Элементы не найдены");
@@ -65,29 +63,29 @@ public class StartUI {
             System.out.println("Заявка ID" + item.getId() + " Имя " + item.getName() + " Описание " + item.getDecs());
         }
         }
-    }
+    }*/
     /**
      * Method editItem. Редактирование заявки.
      */
 
-    public void editItem() {
+    /*public void editItem() {
         String askId = input.ask("Введите идентификатор заявки");
         String askName = input.ask("Введите новое имя заявки");
         String askDesc = input.ask("Введите новое описание заявки");
         Boolean editedItem = tracker.replace(askId, new Item(askName, askDesc, created));
-    }
+    }*/
     /**
      * Method deleteItem. Удаление заявки.
      */
-    public void deleteItem() {
+/*    public void deleteItem() {
         String askId = input.ask("Введите идентификатор заявки");
         tracker.delete(askId);
         System.out.println("Заявка удалена");
-    }
+    }*/
     /**
      * Method findItemById. Поиск заявки по идентификатору.
      */
-    public void findItemById() {
+    /*public void findItemById() {
         String askId = input.ask("Введите идентификатор заявки");
         Item foundItem = tracker.findById(askId);
         if (foundItem.equals(null)) {
@@ -95,11 +93,11 @@ public class StartUI {
         } else {
             System.out.println("Заявка ID" + foundItem.getId() + "Имя" + foundItem.getName() + "Описание" + foundItem.getDecs());
         }
-    }
+    }*/
     /**
      * Method findItemByName. Поиск заявки по имени.
      */
-    public void findItemByName() {
+   /* public void findItemByName() {
         String askName = input.ask("Введите имя заявки");
         Item[] found = tracker.findByName(askName);
         if (found.length == 0) {
@@ -109,12 +107,19 @@ public class StartUI {
             System.out.println("ID " + item.getId() + " Имя" + item.getName() +  " Описание" + item.getDecs()); }
 
         }
-    }
+    }*/
     /**
      * Method init. Основной цикл.
      */
     public void init() {
-        boolean exit = false;
+        MenuTracker menu = new MenuTracker(this.input, tracker);
+        menu.fillActions();
+        do {
+            menu.show();
+            int key = Integer.valueOf(input.ask("Select: "));
+            menu.select(key);
+        } while (!"y".equals(this.input.ask("Exit? y")));
+/*        boolean exit = false;
        while (!exit) {
            this.showMenu();
            String r = input.ask("Введите пункт меню");
@@ -134,7 +139,7 @@ public class StartUI {
            } else if (EXIT.equals(r)) {
            exit = true;
            }
-       }
+       }*/
 
        }
 
