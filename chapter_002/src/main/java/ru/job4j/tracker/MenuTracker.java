@@ -5,6 +5,7 @@ public class MenuTracker {
     private Tracker tracker;
     private UserAction[] actions = new UserAction[6];
     long created = System.currentTimeMillis();
+    public final static int[] AVAILABLE_RANGE_LIST = new int[] {0, 1, 2, 3, 4, 5, 6, 7};
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -20,6 +21,14 @@ public class MenuTracker {
         this.actions[5] = new FindByName();
 
     }
+
+    public int getActionsLength() {
+        int actionLength = 0;
+        for (int i = 0; i < actions.length; i++) {
+            actionLength = i;
+        }
+        return actionLength;
+        }
 
     public void select(int key) {
         this.actions[key].execute(this.input, this.tracker);
@@ -101,12 +110,19 @@ public class MenuTracker {
         @Override
         public void execute(Input input, Tracker tracker) {
             String askId = input.ask("Введите идентификатор заявки");
-            Item foundItem = tracker.findById(askId);
-            if (foundItem.equals(null)) {
+            //Item foundItem = tracker.findById(askId);
+            try {
+                Item foundItem = tracker.findById(askId);
+                System.out.println("Заявка ID" + foundItem.getId() + "Имя" + foundItem.getName() + "Описание" + foundItem.getDecs());
+            } catch (NullPointerException npe) {
+                System.out.println("Заявка не найдена");
+                //throw new ItemNotFoundException("Заявка не найдена");
+            }
+           /* if (foundItem.equals(null)) {
                 System.out.println("Item not found");
             } else {
                 System.out.println("Заявка ID" + foundItem.getId() + "Имя" + foundItem.getName() + "Описание" + foundItem.getDecs());
-            }
+            }*/
         }
 
         @Override
@@ -158,5 +174,31 @@ public class MenuTracker {
         public String info() {
             return String.format("%s. %s", this.key(), "Find item by name");
         }
+    }
+
+    /**
+     * Method checkKeyInAvailableRangeList. Проверка ключа на вхождение в массив.
+     */
+    public static int checkKeyInAvailableRangeList(int key, int[] range) {
+        boolean found = false;
+        if (range.length == 0) {
+            for (int i = 0; i < AVAILABLE_RANGE_LIST.length; i++) {
+                if (AVAILABLE_RANGE_LIST[i] == key) {
+                    found = true;
+                    break;
+                }
+            }
+        } else {
+            for (int i = 0; i < range.length; i++) {
+                if (range[i] == key) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        if (!found) {
+            throw new MenuOutException("Menu out of range - check");
+        }
+        return key;
     }
 }

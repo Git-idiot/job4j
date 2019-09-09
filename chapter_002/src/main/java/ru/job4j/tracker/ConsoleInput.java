@@ -10,7 +10,26 @@ public class ConsoleInput implements Input {
         return answer;
 
     }
-/*   private static final String ADD = "0";
+
+    @Override
+    public int ask(String question, int[] range) {
+        int key = Integer.valueOf(this.ask(question));
+        boolean exist = false;
+        for (int value : range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+
+        }
+        if (exist) {
+            return key;
+        } else {
+            throw new MenuOutException("Значение вне диапазона");
+        }
+    }
+
+    /*   private static final String ADD = "0";
     public String ask () {
 
         System.out.println("Введите пункт меню");

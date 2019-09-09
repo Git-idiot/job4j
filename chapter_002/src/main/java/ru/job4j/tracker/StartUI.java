@@ -1,10 +1,13 @@
 package ru.job4j.tracker;
+import java.util.ArrayList;
+
 /**
  * @version $Id$
  * @since 0.1
  */
 
 public class StartUI {
+    private int[] ranges = new int[] {0, 1, 2, 3, 4, 5};
     //ConsoleInput consoleInput;
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
@@ -113,11 +116,16 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, tracker);
+        ArrayList<Integer> range = new ArrayList<>();
         menu.fillActions();
+        for (int i = 0; i < menu.getActionsLength(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            int key = Integer.valueOf(input.ask("Select: "));
-            menu.select(key);
+           // int key = Integer.valueOf(input.ask("Select: "));
+           // menu.select(key);
+            menu.select(input.ask("Select: ", ranges));
         } while (!"y".equals(this.input.ask("Exit? y")));
 /*        boolean exit = false;
        while (!exit) {
@@ -147,7 +155,8 @@ public class StartUI {
 
     public static void main(String[] args) {
         //new StartUI(new ConsoleInput(), new Tracker()).init();
-        StartUI ui = new StartUI(new ConsoleInput(), new Tracker());
+        //StartUI ui = new StartUI(new ConsoleInput(), new Tracker());
+        StartUI ui = new StartUI(new ValidateInput(new ConsoleInput()), new Tracker());
         ui.init();
 
         }
